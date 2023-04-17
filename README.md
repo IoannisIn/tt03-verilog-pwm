@@ -33,3 +33,5 @@ After that, the action uses the open source ASIC tool called [OpenLane](https://
 ## What next?
 
 * Share your GDS on Twitter, tag it [#tinytapeout](https://twitter.com/hashtag/tinytapeout?src=hashtag_click) and [link me](https://twitter.com/matthewvenn)!
+
+https://gds-viewer.tinytapeout.com/?model=https%3A%2F%2Fioannisin.github.io%2Ftt03-verilog-pwm%2F%2Ftinytapeout.gds.gltf
