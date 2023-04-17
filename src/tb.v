@@ -27,10 +27,10 @@ module tb (
     // wire up the inputs and outputs
     wire [7:0] inputs = {5'b0, btn_decrPWM, btn_incrPWM, clk};
     wire [7:0] outputs;
-    assign inled = output[0];
-    assign deled = output[1];
-    assign led = output[2];
-    assign clock_1hz = output[3];
+    assign inled = outputs[0];
+    assign deled = outputs[1];
+    assign led = outputs[2];
+    assign clock_1hz = outputs[3];
 
     // instantiate the DUT
     pwm dut(
