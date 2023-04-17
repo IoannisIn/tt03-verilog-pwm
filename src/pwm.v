@@ -6,10 +6,6 @@ module pwm (
     wire clk = io_in[0];			//Input Clock 12500Hz
     wire btn_incrPWM = io_in[1];	//Increase PWM value
     wire btn_decrPWM = io_in[2];	//Decrease PWM value
-    wire inled;						//Output indication of max PWM reached
-	wire deled;						//Output indication of min PWM reached
-	wire led;						//Output dimmed led
-	wire clock_1hz;					//1Hz output led
 	assign io_out[0] = inled;
 	assign io_out[1] = deled;
 	assign io_out[2] = led;
