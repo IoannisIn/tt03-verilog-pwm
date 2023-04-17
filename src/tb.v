@@ -26,14 +26,14 @@ module tb (
 
     // wire up the inputs and outputs
     wire [7:0] inputs = {5'b0, btn_decrPWM, btn_incrPWM, clk};
-    assign [7:0] outputs = {4'b0, inled, deled, led, clock_1hz};
+    wire [7:0] outputs;
+    assign inled = output[0];
+    assign deled = output[1];
+    assign led = output[2];
+    assign clock_1hz = output[3];
 
     // instantiate the DUT
-    pwm pwm(
-        `ifdef GL_TEST
-            .vccd1( 1'b1),
-            .vssd1( 1'b0),
-        `endif
+    pwm dut(
         .io_in  (inputs),
         .io_out (outputs)
         );
