@@ -16,6 +16,10 @@ Overall, this Verilog module provides a simple and efficient way to generate PWM
 
 The verilog code was tested in a DE1-soc FPGA development board and found to be functional. The next step is to see if it works in the ASIC implementation.
 
+# GDS Viewer
+
+https://gds-viewer.tinytapeout.com/?model=https%3A%2F%2Fioannisin.github.io%2Ftt03-verilog-pwm%2F%2Ftinytapeout.gds.gltf
+
 # What is Tiny Tapeout?
 
 TinyTapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip!
@@ -50,4 +54,4 @@ After that, the action uses the open source ASIC tool called [OpenLane](https://
 
 * Share your GDS on Twitter, tag it [#tinytapeout](https://twitter.com/hashtag/tinytapeout?src=hashtag_click) and [link me](https://twitter.com/matthewvenn)!
 
-https://gds-viewer.tinytapeout.com/?model=https%3A%2F%2Fioannisin.github.io%2Ftt03-verilog-pwm%2F%2Ftinytapeout.gds.gltf
+
