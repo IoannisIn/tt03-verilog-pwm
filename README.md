@@ -20,6 +20,8 @@ The verilog code was tested in a DE1-soc FPGA development board and found to be 
 
 https://gds-viewer.tinytapeout.com/?model=https%3A%2F%2Fioannisin.github.io%2Ftt03-verilog-pwm%2F%2Ftinytapeout.gds.gltf
 
+# Original README.md follows
+
 # What is Tiny Tapeout?
 
 TinyTapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip!
