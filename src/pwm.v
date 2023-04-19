@@ -1,22 +1,23 @@
 module pwm (
-    input [7:0] io_in,
-    output [7:0] io_out
+    input [7:0] io_in,			// Input port for clock and button signals
+    output [7:0] io_out			// Output port for LED signals
     );
 
-    wire clk = io_in[0];			//Input Clock 12500Hz
+    wire clk = io_in[0];		//Input Clock 12500Hz
     wire btn_incrPWM = io_in[1];	//Increase PWM value
     wire btn_decrPWM = io_in[2];	//Decrease PWM value
-	reg inled;
-	reg deled;
-	reg led;
-	reg clock_1hz;
-	assign io_out[0] = inled;
-	assign io_out[1] = deled;
-	assign io_out[2] = led;
-	assign io_out[3] = clock_1hz;	
+    reg inled;                          // Register for LED signal indicating maximum duty cycle
+    reg deled;                          // Register for LED signal indicating minimum duty cycle
+    reg led;                            // Register for PWM signal
+    reg clock_1hz;                      // Register for 1Hz clock signal
+    assign io_out[0] = inled;           // Output port for inled signal
+    assign io_out[1] = deled;           // Output port for deled signal
+    assign io_out[2] = led;             // Output port for led signal
+    assign io_out[3] = clock_1hz;       // Output port for 1Hz clock signal
+
 	
   reg [7:0] duty_cycle = 8'h3f; // initial duty cycle is 50% is the half of count maximum value.
-  reg [7:0] count = 8'h00; 		// Initialize count for PWM period.
+  reg [7:0] count = 8'h00; 	// Initialize count for PWM period.
   reg [11:0] bucount = 12'h000; // Initialize count for increase button PWM debounce funstion.
   reg [11:0] bdcount = 12'h000; // Initialize count for decrease button PWM debounce funstion.
   reg debounced_btn_incrPWM;	// Increase PWM  debounce  register.
