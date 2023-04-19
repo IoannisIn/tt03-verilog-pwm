@@ -27,79 +27,79 @@ module pwm (
 	
 always @(posedge clk)
 begin
-	counter <= counter + 28'd1;
+counter <= counter + 28'd1;
 	 if(counter>=(DIVISOR-1))
-			counter <= 28'd0;
-			clock_1hz <= (counter<DIVISOR/2)?1'b1:1'b0;
-	end
+		counter <= 28'd0;
+		clock_1hz <= (counter<DIVISOR/2)?1'b1:1'b0;
+	 end
 	
-  always @(posedge clk) begin
+always @(posedge clk) begin
   if (debounced_btn_incrPWM && (duty_cycle < 8'h7F)) begin
       duty_cycle <= duty_cycle + 1; // increment duty cycle by 1 when button is pressed
-    end
-    else if (debounced_btn_decrPWM && (duty_cycle > 8'h00)) begin
+  end
+  else if (debounced_btn_decrPWM && (duty_cycle > 8'h00)) begin
       duty_cycle <= duty_cycle - 1; // decrement duty cycle by 1 when button down is pressed
-    end
-
-    count <= count + 1; //increment count of PWM period
-
-	if (duty_cycle == 8'h00)begin
-		deled <= 1'b1;
-	end
-	else begin
-		deled <= 1'b0;
-	end
-	if (duty_cycle == 8'h7f)begin
-		inled <= 1'b1;
-	end
-	else begin
-      inled <= 1'b0;
-	end
-	 
-    if (count < duty_cycle) begin //PWM signal generation
-      led <= 1'b1;
-    end
-    else begin
-      led <= 1'b0;
-    end
-
-    if (count == 8'h7F) begin	  //In this point the PWM period can be set, this is the maximum  PWM value
-	  count <= 8'h00; 			  // reset count
-    end
   end
 
-  always @(posedge clk) begin
-    if (btn_incrPWM == 1'b1) begin
-      bucount <= bucount + 1;	  // increment count if button is pressed
-    end
-    else begin
-      bucount <= 8'h00;      	  // reset count if button is not pressed
-    end
+count <= count + 1; //increment count of PWM period
 
-    // set debounced button Increase 
+if (duty_cycle == 8'h00)begin
+	deled <= 1'b1;
+end
+else begin
+	deled <= 1'b0;
+end
+if (duty_cycle == 8'h7f)begin
+	inled <= 1'b1;
+end
+else begin
+    	inled <= 1'b0;
+end
+	 
+if (count < duty_cycle) begin //PWM signal generation
+	led <= 1'b1;
+end
+else begin
+        led <= 1'b0;
+end
+
+if (count == 8'h7F) begin	  //In this point the PWM period can be set, this is the maximum  PWM value
+	count <= 8'h00; 			  // reset count
+end
+end
+
+always @(posedge clk) begin
+if (btn_incrPWM == 1'b1) begin
+      bucount <= bucount + 1;	  // increment count if button is pressed
+end
+else begin
+      bucount <= 8'h00;      	  // reset count if button is not pressed
+end
+
+// set debounced button Increase 
     if (bucount == 12'h1FF) begin
       debounced_btn_incrPWM <= 1'b1; //Button is debounced
     end
     else begin
       debounced_btn_incrPWM <= 1'b0;
     end
-  end
+end
   
-  always @(posedge clk) begin
-    if (btn_decrPWM == 1'b1) begin
+always @(posedge clk) begin
+if (btn_decrPWM == 1'b1) begin
       bdcount <= bdcount + 1;		//increment count if button is pressed
-    end
-    else begin
+end
+else begin
       bdcount <= 8'h00;				//reset count if button is not pressed
-    end
+end
 
-    // set debounced button Decrease 
+// set debounced button Decrease 
     if (bdcount == 12'h1FF) begin
       debounced_btn_decrPWM <= 1'b1;//Button is debounced
     end
     else begin
       debounced_btn_decrPWM<= 1'b0;
     end
-  end
+end
     
 endmodule
