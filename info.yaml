@@ -17,7 +17,7 @@ yaml_version: 1.0
 #
 # Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
 documentation: 
-  author:       "Ioannis G. Intzes"
+  author:       "Ioannis G. Intzes, International Hellenic University - Department of Information and Electronic Engineering"
   title:        "Brightness control of LED with PWM"
   language:     "Verilog"
   description:  "Increase and Decrease the PWM (Pulse-Width) to dim a LED."
